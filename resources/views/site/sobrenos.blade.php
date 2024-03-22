@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Sobre Nos</h1>
+    <<header>
+        <h1>Sobre Nos</h1>
+        <nav>
+            <ul>
+                <li><a href="inicial">Página Inicial</a></li>
+                <li><a href="sobre">Sobrenos</a></li>
+                <li><a href="contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 </body>
 </html>
