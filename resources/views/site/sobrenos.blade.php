@@ -9,26 +9,27 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-  <a class="navbar-brand" href="/inicial">
-    <img src="logo-etec.png" alt="Descrição da Imagem" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;"> Inicio
-</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/inicial">
+      <img src="logo-etec.png" alt="Descrição da Imagem" style="width: 50px; height: 50px; vertical-align: middle; margin-right: 10px;"> Início
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" href="/contato">Contato</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sobrenos">Sobre Nos</a>
-        </li>
+          <a class="nav-link" href="/sobrenos">Sobre Nós</a>
         </li>
       </ul>
-      
+    </div>
+  </div>
 </nav>
+
  </header>
 
  <div class="card-group">
@@ -57,6 +58,25 @@
     </div>
   </div>
 </div>
+<style>
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #343a40; 
+        color: white; 
+        text-align: center;
+        padding: 10px 0;
+        height: 50px;
+    }
+</style>
+
+<footer>
+    <p>&copy; 2024 Etec Zona Leste. Todos os direitos reservados.</p>
+</footer>
+
+
 
 
 </body>
