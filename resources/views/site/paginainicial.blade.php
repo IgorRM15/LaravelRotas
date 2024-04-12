@@ -6,22 +6,35 @@
   <title>ETEC Zona Leste</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
     .navbar {
       background-color: #fff;
       color: #000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .navbar-brand {
       color: #000;
+      font-weight: bold;
     }
 
     .navbar-nav .nav-link {
       color: #000;
+      font-weight: bold;
     }
 
     .card {
       margin: 20px;
       border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     footer {
