@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Contato</title>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,55 +43,95 @@
     </div>
   </div>
 </nav>
-
-<section class="container mt-4">
+<div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-4 text-center">
-      <a href="https://www.instagram.com/eteczonalesteoficial/" target="blank" class="text-dark text-decoration-none">
-        <i class="bi bi-instagram fs-1"></i>
-        <h2 class="mt-3">Instagram</h2>
-      </a>
-    </div>
-    <div class="col-md-4 text-center">
-      <a href="https://www.facebook.com/Eteczonalesteoficial/?locale=pt_BR" target="blank" class="text-dark text-decoration-none">
-        <i class="bi bi-facebook fs-1"></i>
-        <h2 class="mt-3">Facebook</h2>
-      </a>
-    </div>
-    <div class="col-md-4 text-center">
-      <a href="https://www.youtube.com/@etecdazonaleste2949" target="blank" class="text-dark text-decoration-none">
-        <i class="bi bi-youtube fs-1"></i>
-        <h2 class="mt-3">YouTube</h2>
-      </a>
+    <div class="col-md-6">
+      <div class="form-container">
+        <h2 class="text-center mb-4">Entre em Contato</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome">
+            <div class="error-message" id="errorNome"></div>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" class="form-control" id="telefone" name="telefone">
+            <div class="error-message" id="errorTelefone"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="email" name="email">
+            <div class="error-message" id="errorEmail"></div>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea class="form-control" id="mensagem" name="mensagem" rows="4"></textarea>
+            <div class="error-message" id="errorMensagem"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block mt-3">Enviar</button>
+        </form>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <style>
-    footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #343a40; 
-        color: white; 
-        text-align: center;
-        padding: 10px 0;
-        height: 50px;
-    }
-</style>
+<script>
 
-<footer>
-    <p>&copy; 2024 Etec Zona Leste. Todos os direitos reservados.</p>
-</footer>
+  function validateForm() {
+    let isValid = true;
 
-</footer>
   
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    $('.error-message').text('');
+
+    if ($('#nome').val().trim() === '') {
+      $('#errorNome').text('Por favor, digite seu nome.');
+      isValid = false;
+    }
+
+  
+    const telefoneRegex = /^\d{10,}$/;
+    if (!telefoneRegex.test($('#telefone').val().trim())) {
+      $('#errorTelefone').text('Por favor, digite um telefone válido (apenas números).');
+      isValid = false;
+    }
+
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test($('#email').val().trim())) {
+      $('#errorEmail').text('Por favor, digite um e-mail válido.');
+      isValid = false;
+    }
+
+   
+    if ($('#mensagem').val().trim() === '') {
+      $('#errorMensagem').text('Por favor, digite sua mensagem.');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+
+  $('#contactForm').submit(function(event) {
+
+    event.preventDefault();
+
+  
+    if (validateForm()) {
+    
+      alert('Formulário válido. Enviando...');
+
+    } else {
+      alert('Por favor, corrija os erros no formulário antes de enviar.');
+    }
+  });
+</script>
 
 </body>
 </html>
